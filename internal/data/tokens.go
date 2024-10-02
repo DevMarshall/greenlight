@@ -84,6 +84,6 @@ func (m TokenModel) DeleteAllForUser(scope string, userID int64) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	_, err := m.DB.ExecContext(ctx, query, userID)
+	_, err := m.DB.ExecContext(ctx, query, scope, userID)
 	return err
 }
